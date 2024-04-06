@@ -25,7 +25,7 @@ class Podman::Image
       io << @id.truncated
     end
     io << ' '
-    @created.to_s(io)
+    @created_at.to_s(io)
   end
 
   def_equals @id
