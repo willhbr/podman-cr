@@ -9,6 +9,7 @@ class Podman::Container
     Running
     Paused
     Exited
+    Stopping
     Stopped
     Configured
 

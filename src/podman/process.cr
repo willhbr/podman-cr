@@ -50,8 +50,13 @@ module Podman
       %w(container inspect) + ids, remote: remote)
   end
 
-  def self.get_images(remote : String?)
-    run_interal(Array(Podman::Image), %w(image ls --format json), remote: remote)
+  def self.get_images(remote : String?, filter : String? = nil)
+    args = %w(image ls --format json)
+    if f = filter
+      args << "--filter"
+      args << f
+    end
+    run_interal(Array(Podman::Image), args, remote: remote)
   end
 
   def self.get_container_logs(id, tail, remote)
